@@ -18,4 +18,7 @@ we recommend that you use the "email" search filter for more efficiency
 
 ## Output
 
+![Output](https://github.com/Alexisgt01/EmailCrawler/blob/master/output.png?raw=true)
+
+
 The output is a .csv file present at the root of the directory
