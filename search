@@ -4,7 +4,7 @@
 
 define('ROOT', __DIR__);
 
-require ('vendor/autoload.php');
+require(ROOT . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php');
 
 use App\Search;
 

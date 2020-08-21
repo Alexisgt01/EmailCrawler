@@ -7,18 +7,46 @@ use GuzzleHttp\Client;
 class Search
 {
 
+    /**
+     * Guzzle Instance
+     * @var Client $guzzle
+     */
     public $guzzle;
 
+    /**
+     * Argv[0]
+     * @var string $search
+     */
     public $search;
 
+    /**
+     * Google search content
+     * @var string $content
+     */
     public $content;
 
+    /**
+     * html link href regex
+     * @var string $href
+     */
     public $href = '/<a[^>]* href="([^"]*)"/';
 
+    /**
+     * All url resulted
+     * @var array $result
+     */
     public $result = [];
 
+    /**
+     * Get nb per page
+     * @var array $nb_per_page
+     */
     public $nb_per_page = [];
 
+    /**
+     * Filter google url
+     * @var string[] $google_subdomain
+     */
     public $google_subdomain = [
         'support',
         'maps',
@@ -29,6 +57,10 @@ class Search
         'webcache',
     ];
 
+    /**
+     * Search constructor.
+     * Create Guzzle instance
+     */
     public function __construct()
     {
         $this->guzzle = new Client([
@@ -41,6 +73,9 @@ class Search
         ]);
     }
 
+    /**
+     * Run the script
+     */
     public function run()
     {
         $this->getArgv();
@@ -51,6 +86,9 @@ class Search
         $crawler->run();
     }
 
+    /**
+     * Get Argv from console
+     */
     private function getArgv()
     {
         global $argv;
@@ -93,9 +131,13 @@ class Search
             $content       = $this->guzzle->get('https://google.com/search?q=' . $this->search . '&start=' . $i);
             $this->content = $content->getBody()->getContents();
             $this->extractPerPage();
+            sleep(6);
         }
     }
 
+    /**
+     * extract url per page
+     */
     public function extractPerPage()
     {
         preg_match_all($this->href, $this->content, $match);
@@ -106,6 +148,11 @@ class Search
         }
     }
 
+    /**
+     * Google url filter
+     * @param string $url
+     * @return bool
+     */
     public function google_checker($url)
     {
         foreach ($this->google_subdomain as $sub) {
@@ -115,6 +162,13 @@ class Search
         return true;
     }
 
+    /**
+     * Get string between two term
+     * @param string $string
+     * @param string $start
+     * @param string $end
+     * @return false|string
+     */
     public static function get_string_between($string, $start, $end)
     {
         $string = ' ' . $string;
