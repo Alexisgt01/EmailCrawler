@@ -1,0 +1,17 @@
+{
+  "name": "untitle/email",
+  "authors": [
+    {
+      "name": "Alexisgt01",
+      "email": "alexis.gatuingt@gmail.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
