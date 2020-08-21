@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 
 <?php
-
+echo "Wait... \n";
 define('ROOT', __DIR__);
 
 require(ROOT . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php');
