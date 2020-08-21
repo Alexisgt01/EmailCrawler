@@ -48,8 +48,8 @@ class Crawler
 
     /**
      * Crawler constructor.
-     * @param string $urls
-     * @param Client $guzzle
+     * @param array $urls
+     * @param $guzzle
      */
     public function __construct($urls, $guzzle)
     {

@@ -82,7 +82,7 @@ class Search
         $this->request();
         $this->extract();
         $this->requestPerPage();
-        $crawler = new Crawler($this->result, $this->guzzle);
+        $crawler = new Crawler(array_unique($this->result), $this->guzzle);
         $crawler->run();
     }
 
