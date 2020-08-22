@@ -47,14 +47,22 @@ class Crawler
     public $result = '';
 
     /**
+     * Word to search ( its name of csv )
+     * @var string $search
+     */
+    public $search;
+
+    /**
      * Crawler constructor.
      * @param array $urls
      * @param $guzzle
+     * @param string $search
      */
-    public function __construct($urls, $guzzle)
+    public function __construct($urls, $guzzle, $search)
     {
         $this->urls   = $urls;
         $this->guzzle = $guzzle;
+        $this->search = $search;
     }
 
     /**
@@ -68,7 +76,7 @@ class Crawler
             $this->base_url = $parsed['scheme'] . '://' . $parsed['host'];
             $this->request($url);
         }
-        file_put_contents(ROOT . DIRECTORY_SEPARATOR . date("Y-m-d@H-m-s") . ".csv", $this->result);
+        file_put_contents(ROOT . DIRECTORY_SEPARATOR . $this->search . ".csv", $this->result);
     }
 
     /**
