@@ -93,7 +93,7 @@ class Crawler
     public function extract($url)
     {
         preg_match($this->regex_email, $this->content, $match);
-        if ($match):
+        if ($match && filter_var($match[0], FILTER_VALIDATE_EMAIL)):
             $this->result .= $url;
             $this->result .= ",";
             $this->result .= $match[0];
