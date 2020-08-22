@@ -1,8 +1,6 @@
 # Email Crawler
 
-Retrieves all email addresses from a google search. On all result pages (1 to xx)
-
-One level : For now, browse only URLs, the bot does not browse inside the resulted site
+Retrieves all email addresses from a google search. On all result pages (1 to xx pages)
 
 ## Installation
 
@@ -12,9 +10,7 @@ One level : For now, browse only URLs, the bot does not browse inside the result
 
 ## Utilization
 
-``php search "site internet \"email\""``
-
-we recommend that you use the "email" search filter for more efficiency
+``php search "site internet"``
 
 ## Output
 
