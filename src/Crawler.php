@@ -3,9 +3,12 @@
 
 namespace App;
 
+use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\ServerException;
 
 
 class Crawler
@@ -86,10 +89,10 @@ class Crawler
     public function request($url)
     {
         try {
-            $res           = $this->guzzle->get($url);
+            $res           = $this->guzzle->request('GET', $url, ['connect_timeout' => 15]);
             $this->content = $res->getBody()->getContents();
             $this->extract($url);
-        } catch (RequestException | ConnectException | GuzzleException $e) {
+        } catch (RequestException | ConnectException | BadResponseException | ServerException | ClientException | GuzzleException $e) {
             echo "error $url \n";
         }
     }
