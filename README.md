@@ -12,6 +12,8 @@ Retrieves all email addresses from a google search. On all result pages (1 to xx
 
 ``php search "site internet"``
 
+You are limited to 2, maybe 3, usage per hour. Google only allows 50 requests per hour. (Error 429)
+
 ## Output
 
 ![Output](https://github.com/Alexisgt01/EmailCrawler/blob/master/output.png?raw=true)
