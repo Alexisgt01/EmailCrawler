@@ -51,9 +51,9 @@ class Crawler
 
     /**
      * Word to search ( its name of csv )
-     * @var string $search
+     * @var string $filename
      */
-    public $search;
+    public $filename;
 
     /**
      * Crawler constructor.
@@ -63,9 +63,9 @@ class Crawler
      */
     public function __construct($urls, $guzzle, $search)
     {
-        $this->urls   = $urls;
-        $this->guzzle = $guzzle;
-        $this->search = $search;
+        $this->urls     = $urls;
+        $this->guzzle   = $guzzle;
+        $this->filename = str_replace(' ', '_', $search) . ".csv";
     }
 
     /**
@@ -79,7 +79,8 @@ class Crawler
             $this->base_url = $parsed['scheme'] . '://' . $parsed['host'];
             $this->request($url);
         }
-        file_put_contents(ROOT . DIRECTORY_SEPARATOR . $this->search . ".csv", $this->result);
+        echo ROOT . DIRECTORY_SEPARATOR . $this->filename . " file generated";
+        file_put_contents(ROOT . DIRECTORY_SEPARATOR . $this->filename, $this->result);
     }
 
     /**
