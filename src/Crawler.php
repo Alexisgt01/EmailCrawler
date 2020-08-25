@@ -79,7 +79,7 @@ class Crawler
             $this->base_url = $parsed['scheme'] . '://' . $parsed['host'];
             $this->request($url);
         }
-        echo ROOT . DIRECTORY_SEPARATOR . $this->filename . " file generated";
+        echo ROOT . DIRECTORY_SEPARATOR . $this->filename . " file generated \n ";
         file_put_contents(ROOT . DIRECTORY_SEPARATOR . $this->filename, $this->result);
     }
 
