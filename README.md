@@ -16,7 +16,7 @@ You are limited to 2, maybe 3, usage per hour. Google only allows 50 requests pe
 
 ### Search a specific website with filters
 
-``php search "site:https:\\yourdomain.com``
+``php search "site:https:\\yourdomain.com"``
 
 ## Output
 
