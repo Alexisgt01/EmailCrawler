@@ -66,6 +66,7 @@ class Crawler
         $this->urls     = $urls;
         $this->guzzle   = $guzzle;
         $this->filename = str_replace(' ', '_', $search) . ".csv";
+        $this->filename = str_replace(['https://', 'http://', ':'], '', $this->filename);
     }
 
     /**
